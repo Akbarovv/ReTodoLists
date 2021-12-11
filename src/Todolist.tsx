@@ -31,19 +31,19 @@ export function Todolist(props: TodolistType) {
     const setFilter = (value: FilterValuesType) => {
         setMyFilter(value)
     }
-    /*const [title, setTitle] = useState('')
+    const [title, setTitle] = useState('')
     const addTaskHandler = () => {
         props.addTask(title)
         setTitle('')
-    }*/
-   /* const onChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
+    }
+    const onChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
         setTitle(event.currentTarget.value)
     }
     const EnterKeyPress = (event: KeyboardEvent<HTMLInputElement>)=>{
         if (event.key === "Enter"){
             addTaskHandler()
         }
-    }*/
+    }
     const AllChangeFilter = (value: FilterValuesType)=>{
         setFilter(value)
     }
@@ -54,7 +54,7 @@ export function Todolist(props: TodolistType) {
         <div className="App">
             <div>
                 <h3>{props.title}</h3>
-                <FullInput addTask={props.addTask}/>
+                {/*<FullInput addTask={props.addTask}/>*/}
                 <ul>
                     {
                         tasksForTodolist.map(m => <li key={m.id}>
