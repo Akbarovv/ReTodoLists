@@ -14,7 +14,7 @@ function App() {
     ])
 
     const addTask = (title: string) => {
-        let newTask = {id: v1(), title: title, isDone: true}
+        let newTask = {id: v1(), title: title.trim(), isDone: true}
         setTasks([newTask, ...tasks])
     }
 
@@ -23,7 +23,12 @@ function App() {
         setTasks(task)
     }
 
-   /* const [filter, setMyFilter] = useState<FilterValuesType>('All')
+    const ChangeStatus = (currentId:string ,value: boolean) => {
+        console.log(value)
+        setTasks(tasks.map(t=>t.id === currentId ? {...t,isDone:value}: t))
+    }
+
+    const [filter, setMyFilter] = useState<FilterValuesType>('All')
 
     let tasksForTodolist = tasks
 
@@ -36,14 +41,15 @@ function App() {
 
     const setFilter = (value: FilterValuesType) => {
         setMyFilter(value)
-    }*/
+    }
     return (
         <div>
             <Todolist title="What to learn"
-                      tasks={tasks}
+                      tasks={tasksForTodolist}
                       removeTask={removeTask}
-                      // setFilter={setFilter}
+                      setFilter={setFilter}
                       addTask={addTask}
+                      changeStatus={ChangeStatus}
             />
         </div>
     )
